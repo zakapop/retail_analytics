@@ -10,7 +10,7 @@ var bodyParser = require('body-parser');
 //database requirements
 var mongo = require('mongodb');
 var monk = require('monk');
-var db = monk('localhost:27017/retail_db');
+var db = monk('192.168.1.133:27017/retail_db');
 
 
 // starts express
@@ -20,7 +20,7 @@ var app = express();
 var http = require('http');
 
 // sets the variable for the server port
-var port = process.env.PORT || 1217;
+var port = process.env.PORT || 3000;
 
 // make database accessible to our router
 app.use(function(req, res, next){
@@ -33,6 +33,7 @@ var routes = require('./routes')(app);
 
 // creates the server with the write head
 http.createServer(function(req, res){
+    console.log('server created');
 });
 
 
